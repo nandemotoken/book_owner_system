@@ -1,0 +1,31 @@
+pragma solidity ^0.5.10;
+
+contract BookOwnerSystem {
+
+        uint32[500] codes;
+        address[500] owneraddresses;
+
+    constructor() BookOwnerSystem() public{
+
+//secret codes (omitted)
+//codes[0] = 00000000
+
+    }
+
+    function owner_register ( uint bookid , uint32 secret_code ) public {
+        if (secret_code == codes[bookid] ) {
+            owneraddresses[bookid] = msg.sender;
+        }
+    }
+
+    function get_owner( uint bookid) public view returns (address) {
+        return owneraddresses[bookid];
+    }
+
+//this function is not stable (causes crash)
+    function get_owner_lists() public view returns ( address[500] memory ){
+        return owneraddresses;
+    }
+
+
+}
