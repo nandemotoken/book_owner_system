@@ -9,7 +9,7 @@ const writerjs =  fs.readFileSync('./writer.js' , 'utf8');
 const abijs = fs.readFileSync('./abi.js' , 'utf8');
 
 var server = http.createServer(very_simple_dapps);
-server.listen(8080);
+server.listen(80);
 console.log('server start');
 
 
