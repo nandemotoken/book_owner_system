@@ -2,17 +2,29 @@ pragma solidity ^0.5.10;
 
 contract BookOwnerSystem {
 
-        uint32[500] codes;
-        address[500] owneraddresses;
+        uint16[2500] codes;
+        address[2500] owneraddresses;
+        address owner;
 
     constructor() BookOwnerSystem() public{
 
+owner = msg.sender;
+
 //secret codes (omitted)
-//codes[0] = 00000000
+//codes[0] = 00000;
 
     }
 
-    function owner_register ( uint bookid , uint32 secret_code ) public {
+    modifier onlyOwner{
+        require(msg.sender == owner);
+        _;
+    }
+
+    function setcodes( uint bookid , uint16 secret_code ) public onlyOwner {
+        codes[bookid] = secret_code;
+    }
+
+    function owner_register ( uint bookid , uint16 secret_code ) public {
         if (secret_code == codes[bookid] ) {
             owneraddresses[bookid] = msg.sender;
         }
@@ -22,8 +34,7 @@ contract BookOwnerSystem {
         return owneraddresses[bookid];
     }
 
-//this function is not stable (causes crash)
-    function get_owner_lists() public view returns ( address[500] memory ){
+    function get_owner_lists() public view returns ( address[2500] memory ){
         return owneraddresses;
     }
 
