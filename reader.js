@@ -24,6 +24,12 @@ ethereum.enable().then(console.log);
 //...solidityの関数呼出の結果が、r_functionNで処理される。
 //---------------------------------------------------
 
+function onlybookowner(){
+	document.write("あなたは本の所有者です。");
+	alert("you are book owner");	
+}
+
+let b = false;
 
 web3js.eth.getAccounts()
 .then( function(hiki1){ return hiki1[0]; })
@@ -32,8 +38,12 @@ web3js.eth.getAccounts()
 	for ( let i = 0; i < nakahiki.length; i++){
 		if( hiki2 == nakahiki[i] ){
 			console.log("you are book owner");
+			b = true;
 		}
 	}
+		if(b){
+	onlybookowner()	
+}
 	} );
 	 });
 
