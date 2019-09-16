@@ -5,4 +5,7 @@ $( function() {
 $('#special').fadeOut(1);
 });
 
+function linkshow(){
+$('#special').fadeIn('slow');
+}
 

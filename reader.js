@@ -25,8 +25,8 @@ ethereum.enable().then(console.log);
 //---------------------------------------------------
 
 function onlybookowner(){
-	document.write("あなたは本の所有者です。");
 	alert("you are book owner");	
+	linkshow();
 }
 
 let b = false;
