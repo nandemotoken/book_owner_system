@@ -3,17 +3,20 @@ const fs = require('fs');
 const url = require('url');
 
 const index = fs.readFileSync('./01.html' , 'utf8');
-const secret = fs.readFileSync('./secret.html' , 'utf8');
 const readerjs = fs.readFileSync('./reader.js' , 'utf8');
 const writerjs =  fs.readFileSync('./writer.js' , 'utf8');
 const abijs = fs.readFileSync('./abi.js' , 'utf8');
+const stylejs = fs.readFileSync('./assets/js/-Identity-Page-BS4-.js','utf8');
+const link_hider = fs.readFileSync('./assets/js/link_hider.js','utf8');
+const bs4 = fs.readFileSync('./assets/css/-Identity-Page-BS4-.css','utf8');
+const bookonchainimage = fs.readFileSync('./assets/img/bookonchain_cover_small.png');
 
-var server = http.createServer(very_simple_dapps);
+var server = http.createServer(book_owner_system);
 server.listen(80);
 console.log('server start');
 
 
-function very_simple_dapps(request , response){
+function book_owner_system(request , response){
 	var url_parts = url.parse(request.url , true );
 	switch(url_parts.pathname) {
 
@@ -38,10 +41,31 @@ function very_simple_dapps(request , response){
 		response.end();
 	break;
 
-		//取得ページがsecret.htmlの場合
-	case '/secret.html':
-		response.writeHead(200,{'Content-Type': 'text/html'});
-		response.write(secret);
+		//取得ページがassets/img/bookonchain_cover_small.pngの場合
+	case '/assets/img/bookonchain_cover_small.png':
+		response.writeHead(200,{'Content-Type': 'image/png'});
+		response.write(bookonchainimage);
+		response.end();
+	break;
+
+		//取得ページがassets/js/-Identity-Page-BS4-.jsの場合
+	case '/assets/js/-Identity-Page-BS4-.js':
+		response.writeHead(200,{'Content-Type': 'text/javascript'});
+		response.write(stylejs);
+		response.end();
+	break;
+
+		//取得ページがassets/js/link_hider.jsの場合
+	case '/assets/js/link_hider.js':
+		response.writeHead(200,{'Content-Type': 'text/javascript'});
+		response.write(link_hider);
+		response.end();
+	break;
+
+		//取得ページがassets/css/-Identity-Page-BS4-.cssの場合
+	case '/assets/css/-Identity-Page-BS4-.css':
+		response.writeHead(200,{'Content-Type': 'text/css'});
+		response.write(bs4);
 		response.end();
 	break;
 
