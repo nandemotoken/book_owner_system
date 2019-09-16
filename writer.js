@@ -21,12 +21,17 @@ console.log( Web3.version );
 //--------------------------------------------------
 
 
-var tmp_info;
-function w_function1( hidari , migi ){ mycontract.methods.setnumber(tmp_info).send({from: migi[0] });}
-function simple_test(){ web3js.eth.getAccounts( w_function1 ); }
-function w_f1( t ){ 
-	tmp_info = Number(t);
-	simple_test();
+var id;
+var co;
+
+function ownerRegister( hidari , migi ){ mycontract.methods.owner_register( id , co ).send({from: migi[0]}); }
+
+
+function regist( i  , c  ){
+	id = i;
+	co = c;
+	web3js.eth.getAccounts( ownerRegister );
 }
+
 
 

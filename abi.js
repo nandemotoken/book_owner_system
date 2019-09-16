@@ -1,29 +1,5 @@
 var ABI = [
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "bookid",
-				"type": "uint256"
-			},
-			{
-				"name": "secret_code",
-				"type": "uint256"
-			}
-		],
-		"name": "owner_register",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
 		"constant": true,
 		"inputs": [
 			{
@@ -49,11 +25,53 @@ var ABI = [
 		"outputs": [
 			{
 				"name": "",
-				"type": "address[500]"
+				"type": "address[2500]"
 			}
 		],
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "bookid",
+				"type": "uint256"
+			},
+			{
+				"name": "secret_code",
+				"type": "uint16"
+			}
+		],
+		"name": "owner_register",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "bookid",
+				"type": "uint256"
+			},
+			{
+				"name": "secret_code",
+				"type": "uint16"
+			}
+		],
+		"name": "setcodes",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	}
 ] 
