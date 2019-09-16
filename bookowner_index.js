@@ -80,7 +80,7 @@ function book_owner_system(request , response){
 	case '/tx_sender':
 		response.writeHead(200,{'Content-Type': 'text/html'});
 		response.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>Bookowner registration</title><script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script><script src="./abi.js"></script><script src="./writer.js"></script></head>');
-		response.write("<body><h1>Bookowner registration</h1><p>トランザクションを送信します。ウォレットを操作してください。</p><p>Etherumへのデータ登録には1分以上かかる場合があります。</p><p>対応ブラウザ調査 20190916</p> <p>対応ブラウザ：chrome + niftywallet</p> <p>対応ブラウザ：firefox + metamask</p> <p>対応ブラウザ：iphone + opera touch</p> <p>バグ調査中：android + opera</p></body>");
+		response.write("<body><h1>Bookowner registration</h1><p>トランザクションを送信します。ウォレットを操作してください。</p><p>Etherumへのデータ登録には1分以上かかる場合があります。</p><p>対応ブラウザ調査 20190916</p> <p>対応ブラウザ：chrome + metamask</p> <p>対応ブラウザ：chrome + niftywallet</p> <p>対応ブラウザ：firefox + metamask</p> <p>対応ブラウザ：iphone + opera touch</p> <p>バグ調査中：android + opera</p><p>トランザクションを送信できない場合：対応ブラウザを用意して頂き、テプラに記載の文字列を改行なく入力してトランザクションを送付してください。お手数おかけいたします。</p></body>");
 		//ユーザのブラウザ上のmetamaskからトランザクションを送るためのhtml文
 		if ( url_parts.query.bookid != undefined && url_parts.query.code != undefined){ response.write( "<script> regist(" +  url_parts.query.bookid + ","+ url_parts.query.code + ")</script>" );  }
 		response.end();
